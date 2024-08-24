@@ -1,0 +1,27 @@
+<ng-container *ngIf="items$ | async as myItems">
+  <ng-container *ngIf="myItems.length">
+    <div class="card m-0 mt-1 py-1 px-2">
+      <div class="p-md-0 d-flex justify-content-between align-items-center">
+        <ol class="breadcrumb bg-transparent col-12 col-md-6 p-0 m-0">
+          <ng-container *ngFor="let item of myItems; let i = index">
+            <li class="breadcrumb-item">
+              <ng-container *ngIf="myItems.length !== i + 1; else lastItem">
+                <a [routerLink]="[item.path]">
+                  {{ item.titleItem }}
+                </a>
+              </ng-container>
+              <ng-template #lastItem>
+                <span class="text-primary">
+                  {{ item.titleItem }}
+                </span>
+              </ng-template>
+            </li>
+          </ng-container>
+        </ol>
+        <span *ngIf="backButton">
+          <p-button icon="pi pi-arrow-left fs-14" (click)="goBack()" styleClass="p-button-rounded text-dark p-button-text"></p-button>
+          </span>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
