@@ -13,20 +13,24 @@ export const routes: Routes = [
     data: {
       animation:'home'
     },
-    resolve: {
-      breadcrumb: B
+    // resolve: {
+    //   breadcrumb: 
+    // }
+  },
+  {
+    path:'forbidden',
+    loadComponent:()=>import('./core/components/pages/forbidden403/forbidden403.component')
+    .then(m =>m.Forbidden403Component),
+    data:{
+      animation:'forbidden'
     }
   },
-  // {
-  //   path:'**',
-  //   loadComponent:()=>import('./core/components/pages/forbidden403/forbidden403.component').then(m =>m.Forbidden403Component)
-  // },
-  // {
-  //   path: 'forbidden',
-  //   loadChildren: () => import('./core/components/pages/forbidden403/forbidden403.module')
-  //   .then(m=> m.Forbidden403Module),
-  //   data: { animation:'forbiddenPage' }
-  // },
+  {
+    path: '**',
+    loadComponent: () => import('./core/components/pages/page404/page404.component')
+    .then(m=> m.Page404Component),
+    data: { animation:'notFound' }
+  },
   // {
   //   path: 'repairing',
   //   loadChildren: ()=> import('./core/components/pages/repair500/repair500.module')
