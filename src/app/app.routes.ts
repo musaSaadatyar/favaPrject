@@ -1,5 +1,6 @@
 import { animation } from '@angular/animations';
 import { Routes } from '@angular/router';
+import { breadcrumbTranslate } from './core/components/daynamic/fava-breadcrumb/fava-breadcrumb.helper';
 
 export const routes: Routes = [
   // {
@@ -13,9 +14,9 @@ export const routes: Routes = [
     data: {
       animation:'home'
     },
-    // resolve: {
-    //   breadcrumb: 
-    // }
+    resolve: {
+      breadcrumb: breadcrumbTranslate('HOME_PAGE')
+    }
   },
   {
     path:'forbidden',
