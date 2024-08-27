@@ -1,16 +1,22 @@
-import { Location, NgIf } from '@angular/common';
+import { CommonModule, Location, NgIf } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { filter, Observable } from 'rxjs';
 import { IBhrBreadcrumb } from './fava-breadcrumb.helper';
 import { DynamicBreadcrumbService } from './fava-breadcrumb.service';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-fava-breadcrumb',
   templateUrl: './fava-breadcrumb.component.html',
   styleUrl: './fava-breadcrumb.component.css',
   standalone: true,
-  imports: [NgIf],
+  imports: [
+    CommonModule,
+    NgIf,
+    RouterModule,
+    ButtonModule
+  ],
 })
 export class FavaBreadcrumbComponent implements OnInit {
   public items$!: Observable<IBhrBreadcrumb[]>;
