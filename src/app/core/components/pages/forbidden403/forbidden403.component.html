@@ -1,8 +1,14 @@
 <div class="access-denied">
-  <h1> {{'UN_ACCESS'|translate}}</h1>
-  <p>{{'FORBIDDEN_PAGE_TO_SEE' | translate}}</p>
-  <div class="buttons">
-    <button (click)="goBack()">برگشت به عقب</button>
-    <button (click)="goHome()">صفحه اصلی</button>
+  <h1>{{ "UN_ACCESS" | translate }}</h1>
+  <p>{{ "FORBIDDEN_PAGE_TO_SEE" | translate }}</p>
+  <div class="buttons row">
+    <fava-button
+      class="text-primary"
+      [btnTitle]="'HOME_PAGE' | translate"
+      (btnClick)="goHome()"
+    >
+    </fava-button>
+    <fava-button [btnTitle]="'RETURN_BACK' | translate" (btnClick)="goBack()">
+    </fava-button>
   </div>
 </div>

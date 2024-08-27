@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { FavaButtonComponent } from '../../daynamic/fava-button/fava-button.component';
 
 @Component({
   selector: 'app-page404',
@@ -8,7 +9,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './page404.component.css',
   standalone: true,
   imports: [
-    TranslateModule
+    TranslateModule,
+    FavaButtonComponent
   ],
 })
 export class Page404Component {
