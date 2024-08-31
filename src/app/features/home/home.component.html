@@ -1,1 +1,34 @@
-<p>home works!</p>
+<div
+  id="main-wrapper"
+  [class]="{ 'menu-toggle': _sharedService.hamburgerClass }"
+  class="show"
+>
+  <div
+    *ngIf="false"
+    class="d-flex justify-content-center align-items-center vh-100"
+  >
+    <fava-loading loaderSize="lg"></fava-loading>
+  </div>
+
+  <div class="testing-version-tag">{{ "TESTING_VERSION" | translate }}</div>
+
+  <ng-container>
+    <div id="except-footer">
+      <app-nav-header></app-nav-header>
+      <app-header></app-header>
+      <ng-container>
+        <!-- <app-navigation></app-navigation> -->
+        <div class="content-body">
+          <!-- <div class="breadcrumb-container">
+            <fava-breadcrumb class="d-block" [backButton]="backButton" />
+          </div> -->
+
+          <!-- <div [@routeAnimations]="getRouteAnimationData()">
+            <router-outlet></router-outlet>
+          </div> -->
+        </div>
+      </ng-container>
+    </div>
+    <!-- <app-footer></app-footer> -->
+  </ng-container>
+</div>

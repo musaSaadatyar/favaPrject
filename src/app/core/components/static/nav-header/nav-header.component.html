@@ -1,0 +1,33 @@
+<div class='nav-header'>
+  <a
+    [routerLink]="['/']"
+    class='brand-logo'>
+    <img
+      class='logo-abbr'
+      src='assets/images/fava.png'
+      alt="fava-logo"
+      width='40'>
+    <h1 class='brand-title text-white'>{{'FAVA'|translate}}</h1>
+  </a>
+
+  <div class='nav-control' *ngIf='windows'>
+    <div
+      [class]="{'is-active': !($hamburgerIcon | async)}"
+      class='hamburger'
+      (click)='toggleHamburgerClass()'>
+      <span class='line avali'></span>
+      <span class='line'></span>
+      <span class='line'></span>
+    </div>
+  </div>
+  <div class='nav-control' *ngIf='!windows'>
+    <div
+      [class]="{'is-active': ($hamburgerIcon | async)}"
+      class='hamburger'
+      (click)='toggleHamburgerClass()'>
+      <span class='line dovomi'></span>
+      <span class='line'></span>
+      <span class='line'></span>
+    </div>
+  </div>
+</div>

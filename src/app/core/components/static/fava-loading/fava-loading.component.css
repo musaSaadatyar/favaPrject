@@ -1,0 +1,120 @@
+*,
+*:before,
+*:after
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cmp-wrapper-sm
+{
+  width: 30px;
+  height: 30px;
+}
+
+.cmp-wrapper-md
+{
+  width: 70px;
+  height: 70px;
+}
+
+.cmp-wrapper-lg
+{
+  width: 100px;
+  height: 100px;
+}
+
+.cmp-wrapper
+{
+  background-color: transparent;
+  border: none;
+}
+
+.cmp-wrapper .cmp-box-wrap
+{
+  width: 70%;
+  height: 70%;
+  margin: calc((100% - 70%) / 2) calc((100% - 70%) / 2);
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(135, 0, 0, 0.6);
+  background: linear-gradient(
+    to right,
+    #141562,
+    #486fbc,
+    #b00020,
+    #8dd6ff,
+    #198754,
+    #4973c9,
+    #04a777,
+    #b00020,
+    #009dbd,
+    #141562,
+    #486fbc
+  );
+  background-position: 0 50%;
+  background-size: 1000% 1000%;
+  visibility: hidden;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-one
+{
+  animation: moveGradient 15s infinite, oneMove 3.5s infinite;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-two
+{
+  animation: moveGradient 15s infinite, twoMove 3.5s 0.15s infinite;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-three
+{
+  animation: moveGradient 15s infinite, threeMove 3.5s 0.3s infinite;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-four
+{
+  animation: moveGradient 15s infinite, fourMove 3.5s 0.575s infinite;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-five
+{
+  animation: moveGradient 15s infinite, fiveMove 3.5s 0.725s infinite;
+}
+
+.cmp-wrapper .cmp-box-wrap .cmp-box.cmp-six
+{
+  animation: moveGradient 15s infinite, sixMove 3.5s 0.875s infinite;
+}
+
+@media (min-width: 768px)
+{
+
+  .cmp-wrapper-sm
+  {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cmp-wrapper-md
+  {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cmp-wrapper-lg
+  {
+    width: 200px;
+    height: 200px;
+  }
+}

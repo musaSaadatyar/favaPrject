@@ -7,7 +7,7 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-fava-breadcrumb',
+  selector: 'fava-breadcrumb',
   templateUrl: './fava-breadcrumb.component.html',
   styleUrl: './fava-breadcrumb.component.css',
   standalone: true,
