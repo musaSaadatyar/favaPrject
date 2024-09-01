@@ -29,6 +29,7 @@
     "install": "^0.13.0",
     "jalali-moment": "^3.3.11",
     "moment-jalaali": "^0.10.1",
+    "ngx-perfect-scrollbar": "^10.1.1",
     "npm": "^10.8.2",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.9",

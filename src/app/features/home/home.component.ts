@@ -9,6 +9,8 @@ import { FavaBreadcrumbComponent } from '../../core/components/daynamic/fava-bre
 import { NavHeaderComponent } from '../../core/components/static/nav-header/nav-header.component';
 import { FavaLoadingComponent } from '../../core/components/static/fava-loading/fava-loading.component';
 import { HeaderComponent } from '../../core/components/static/header/header.component';
+import { slideInAnimation } from '../../core/constants/animations/slide-in.const';
+import { NavigationComponent } from '../../core/components/static/navigation/navigation.component';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +24,10 @@ import { HeaderComponent } from '../../core/components/static/header/header.comp
     FavaBreadcrumbComponent,
     NavHeaderComponent,
     FavaLoadingComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavigationComponent
   ],
+  animations:[slideInAnimation]
 })
 export class HomeComponent extends Unsubscriber {
   //inject

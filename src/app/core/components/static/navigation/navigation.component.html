@@ -1,0 +1,51 @@
+<div class="deznav">
+  <div class="deznav-scroll">
+    <ul
+      class="metismenu"
+      id="menu"
+      metis-menu >
+        <ng-container *ngFor='let navigationItem of getNavigationList'>
+          <li  [class]='{"mm-active" : hasActiveLink(navigationItem)}'>
+            <a class='ai-icon'
+               [class.has-arrow]='navigationItem.items?.length'
+               [routerLink]='[navigationItem.path ? navigationItem.path : currentHref ]'
+               aria-expanded='false'>
+              <i [class]='navigationItem.iconClass'></i>
+              <span
+                [innerText]='navigationItem.title'
+                class='nav-text'>
+            </span>
+            </a>
+
+            <ng-container *ngIf='navigationItem.items'>
+              <ng-container
+                *ngTemplateOutlet='myMenu; context: {$implicit: navigationItem.items }'
+              >
+              </ng-container>
+            </ng-container>
+          </li>
+        </ng-container>
+    </ul>
+  </div>
+</div>
+
+
+<ng-template #myMenu let-myItems>
+  <ul
+    *ngIf='myItems.length'
+    aria-expanded="false">
+    <li *ngFor='let navigationItem of myItems'>
+      <a
+        [innerText]='navigationItem.title'
+        [class]='{"mm-active" : currentHref === navigationItem.path}'
+        [routerLink]='[navigationItem.path ? navigationItem.path : currentHref]'
+        (click)='closeSideBar()'>
+      </a>
+      <ng-container *ngIf='navigationItem.items'>
+        <ng-container
+          *ngTemplateOutlet='myMenu; context: {$implicit: navigationItem.items }'>
+        </ng-container>
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>

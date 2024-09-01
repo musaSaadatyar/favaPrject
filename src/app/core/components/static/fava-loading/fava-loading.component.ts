@@ -15,6 +15,7 @@ export class FavaLoadingComponent implements OnInit {
 
   @Input()
   public showLoading = true;
+  
   @Input()
   public loaderSize: 'sm' | 'md' | 'lg' = 'md'
 
