@@ -3,10 +3,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'fava-button',
-  standalone: true,
-  imports: [ NgIf],
   templateUrl: './fava-button.component.html',
-  styleUrl: './fava-button.component.css'
+  styleUrl: './fava-button.component.css',
+  standalone: true,
+  imports: [],
 })
 export class FavaButtonComponent {
 
