@@ -1,5 +1,5 @@
-<div
-  *ngIf='showLoading'
+@if(showLoading){
+  <div
   [class]='wrapperClasses'>
   <div class='cmp-box-wrap'>
     <div class='cmp-box cmp-one'></div>
@@ -10,3 +10,4 @@
     <div class='cmp-box cmp-six'></div>
   </div>
 </div>
+}

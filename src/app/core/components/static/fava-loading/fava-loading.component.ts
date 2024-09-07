@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './fava-loading.component.css',
   standalone: true,
   imports: [
-    NgIf,
-
   ],
 })
 export class FavaLoadingComponent implements OnInit {
 
   @Input()
   public showLoading = true;
-  
+
   @Input()
   public loaderSize: 'sm' | 'md' | 'lg' = 'md'
 
