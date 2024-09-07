@@ -3,10 +3,7 @@ import { Routes } from '@angular/router';
 import { breadcrumbTranslate } from './core/components/daynamic/fava-breadcrumb/fava-breadcrumb.helper';
 
 export const routes: Routes = [
-  // {
-  //   path:'login',
 
-  // },
   {
     path:'',
     loadChildren: ()=> import('./features/home/home.routes').then(m=>m.Home_route),
