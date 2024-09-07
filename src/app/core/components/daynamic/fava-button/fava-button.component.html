@@ -1,23 +1,24 @@
 <div>
   <button
-  class="d-flex justify-content-center w-100"
-  (click)="clickHandler($event)"
-  [disabled]="btnDisabled"
-  [type]="btnType ?? 'button'"
-  [class]="buttonClass ?? 'btn btn-primary'"
-  pButton
-  pRipple
->
-  <span [class]="{ 'order-1': iconPlacement === 'start' }">
-    {{ btnTitle }}
-  </span>
-  <i *ngIf="icon" [class]="icon"> </i>
-  <span
-    [class]="spinner ? 'ms-2 opacity-100' : 'opacity-0'"
-    class="position-relative order-2 cmp-spinner"
+    class="d-flex justify-content-center w-100"
+    (click)="clickHandler($event)"
+    [disabled]="btnDisabled"
+    [type]="btnType ?? 'button'"
+    [class]="buttonClass ?? 'btn btn-primary'"
+    pButton
+    pRipple
   >
-    <span *appSpinOn="!!spinner; color: spinnerColor ?? 'accent'"></span>
-  </span>
-</button>
-
+    <span [class]="{ 'order-1': iconPlacement === 'start' }">
+      {{ btnTitle }}
+    </span>
+    @if(icon){
+    <i [class]="icon"> </i>
+    }
+    <span
+      [class]="spinner ? 'ms-2 opacity-100' : 'opacity-0'"
+      class="position-relative order-2 cmp-spinner"
+    >
+      <span *appSpinOn="!!spinner; color: spinnerColor ?? 'accent'"></span>
+    </span>
+  </button>
 </div>
