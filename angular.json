@@ -34,6 +34,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/animations/animation.css",
+              "src/assets/css/responsive/responsive.css",
               "src/styles.css"
             ],
             "scripts": [
