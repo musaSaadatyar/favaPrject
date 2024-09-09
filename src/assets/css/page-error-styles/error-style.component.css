@@ -1,0 +1,192 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-error-404 {
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
+  }
+  
+  .error-404 {
+    font-size: 400px;
+    position: absolute;
+    opacity: 0.1;
+    color: gray;
+  }
+  
+  .button {
+    font-weight: bold;
+    color: white;
+    font-size: 0.8rem;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .container-error-not-found {
+    margin-top: 205px;
+  }
+  
+  h2 {
+    color: #f7602b;
+    font-size: 64px;
+    font-weight: bold;
+  }
+  
+  .container-error-ditails {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  
+  h4 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #221d19;
+  }
+  
+  .color-white{
+    color:white !important
+  }
+  
+  @media (max-width: 1400px) {
+    .container-error-404 {
+      margin-top: 110px;
+    }
+  
+    .error-404 {
+      font-size: 350px;
+    }
+  
+    .container-error-not-found {
+      margin-top: 167px;
+    }
+  
+    h4 {
+      font-size: 31px;
+    }
+  
+    .button {
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .container-error-404 {
+      margin-top: 120px;
+    }
+  
+    .error-404 {
+      font-size: 300px;
+    }
+  
+    .container-error-not-found {
+      margin-top: 151px;
+    }
+  
+    h2 {
+      font-size: 43px;
+      font-weight: bold;
+    }
+  
+    h4 {
+      font-size: 19px;
+    }
+  
+    .button {
+      font-size: 0.6rem;
+    }
+  }
+  
+  @media (max-width: 999px) {
+    .container-error-404 {
+      margin-top: 135px;
+    }
+  
+    .container-error-ditails {
+      margin-top: 100px;
+    }
+  
+    .error-404 {
+      font-size: 250px;
+    }
+  
+    .container-error-not-found {
+      margin-top: 125px;
+    }
+  
+    h2 {
+      font-size: 43px;
+      font-weight: bold;
+    }
+  
+    h4 {
+      font-size: 17px;
+    }
+  
+    .button {
+      font-size: 0.6rem;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .container-error-404 {
+      margin-top: 170px;
+    }
+  
+    .error-404 {
+      font-size: 200px;
+    }
+  
+    .container-error-ditails {
+      margin-top: 90px;
+    }
+  
+    .container-error-not-found {
+      margin-top: 97px;
+    }
+  
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+  
+    h4 {
+      font-size: 17px;
+    }
+  }
+  
+  @media (max-width: 300px) {
+    .container-error-404 {
+      margin-top: 200px;
+    }
+  
+    .error-404 {
+      font-size: 150px;
+    }
+  
+    .container-error-not-found {
+      margin-top: 74px;
+    }
+  
+    h2 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+  
+    h4 {
+      font-size: 12px;
+    }
+    .container-error-ditails {
+      margin-top: 60px;
+    }
+  }
