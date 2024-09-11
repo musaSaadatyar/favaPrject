@@ -23,7 +23,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["bootstrap"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
