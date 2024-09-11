@@ -2518,10 +2518,10 @@ input[type="button"].btn-block {
 
 .dropdown-item {
   display: block;
-  width: 100%;
-  padding: 0.25rem 1.5rem;
+  width: 20%;
+  padding: 0.2rem 0.5rem;
   clear: both;
-  font-weight: 400;
+  font-weight: 300;
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
@@ -12096,8 +12096,8 @@ svg.pulse-svg .third-circle {
 }
 
 .header-right .header-profile .dropdown-menu {
-  padding: 15px 0;
-  min-width: 12.5rem;
+  padding: 0px 0;
+  min-width: 9.5rem;
 }
 
 .header-right .header-profile .dropdown-menu a:hover,
