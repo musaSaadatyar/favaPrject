@@ -5373,7 +5373,7 @@ neo-async@^2.6.2:
 
 ngx-perfect-scrollbar@^10.1.1:
   version "10.1.1"
-  resolved "https://registry.npmjs.org/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-10.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/ngx-perfect-scrollbar/-/ngx-perfect-scrollbar-10.1.1.tgz#f89832b9109e89bb59d516184638accd028e9735"
   integrity sha512-f9IaDJGlBzSxnJ3Ki76n2JdzfQngUFyCf0E+CuVLaR5jL0IJDcTu7vOs8wexXunRMTd8xvIv0+sdIxf8hXAGWg==
   dependencies:
     perfect-scrollbar "1.5.0"
