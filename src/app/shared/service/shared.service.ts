@@ -16,7 +16,8 @@ export class SharedService {
   toggleHamburgerClass() {
     let classHandler = this.$hamburgerClass.getValue();
     this.$hamburgerClass.next(!classHandler);
-    return (this.hamburgerClass = !this.hamburgerClass);
+    this.hamburgerClass = !this.hamburgerClass
+    return this.hamburgerClass;
   }
 
   public setToDate(fromDate: any){

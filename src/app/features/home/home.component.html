@@ -1,1 +1,23 @@
-<h1>home compoont</h1>
+<div
+  id="main-wrapper"
+  [class]="{ 'menu-toggle': _sharedService.hamburgerClass }"
+  class="show"
+>
+  @if (showLoading.value) {
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <fava-loading></fava-loading>
+  </div>
+  } 
+  
+  @if (!showLoading.value) {
+  <div id="except-footer">
+    <app-nav-header></app-nav-header>
+    <app-header></app-header>
+  </div>
+  @if(loadModules){
+  <ng-container>
+    <app-navigation></app-navigation>
+  </ng-container>
+  } }
+</div>
+<router-outlet></router-outlet>

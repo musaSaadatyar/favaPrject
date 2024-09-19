@@ -2518,10 +2518,10 @@ input[type="button"].btn-block {
 
 .dropdown-item {
   display: block;
-  width: 20%;
-  padding: 0.2rem 0.5rem;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
   clear: both;
-  font-weight: 300;
+  font-weight: 400;
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
@@ -11352,7 +11352,7 @@ a.active {
 
 .nav-header {
   height: 5.5rem;
-  width: 18rem;
+  width: 15rem;
   display: inline-block;
   text-align: left;
   position: absolute;
@@ -12096,8 +12096,8 @@ svg.pulse-svg .third-circle {
 }
 
 .header-right .header-profile .dropdown-menu {
-  padding: 0px 0;
-  min-width: 9.5rem;
+  padding: 15px 0;
+  min-width: 12.5rem;
 }
 
 .header-right .header-profile .dropdown-menu a:hover,
@@ -15700,7 +15700,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 
 .deznav {
-  width: 18rem;
+  width: 15rem;
   padding-bottom: 0;
   height: calc(100% - 60px);
   position: absolute;

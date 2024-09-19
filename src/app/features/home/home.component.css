@@ -1,0 +1,32 @@
+#except-footer
+{
+  min-height: calc(100vh - 50px);
+}
+
+.cmp-breadcrumb
+{
+  margin-top: 40px;
+  margin-right: 45px;
+}
+
+.testing-version-tag{
+  position: fixed;
+  bottom: 38px;
+  right: -50px;
+  background-color: var(--warning-bg);
+  color: #ffffff;
+  padding: 5px 70px;
+  font-size: 14px;
+  text-align: center;
+  z-index: 9999;
+  rotate: -45deg;
+}
+
+@media (max-width: 768px) {
+  .testing-version-tag{
+    bottom: 22px;
+    right: -74px;
+    font-size: 12px;
+    padding: 3px 70px;
+  }
+}

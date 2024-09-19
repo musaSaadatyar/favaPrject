@@ -41,24 +41,23 @@ export class NavHeaderComponent extends Unsubscriber {
   }
 
   public toggleHamburgerClass() {
+    console.log('toggleHamburgerClass');
     this._sharedService.toggleHamburgerClass();
     this.getHamburgerIcon();
   }
 
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event?: any) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.screenHeight = window.innerHeight;
-      this.screenWidth = window.innerWidth;
-      if (this.screenWidth < 768) {
-        this.windows = false;
-        document.body.setAttribute('data-sidebar-style', 'overlay');
-      } else if (this.screenWidth >= 768 && this.screenWidth <= 1023) {
-        document.body.setAttribute('data-sidebar-style', 'mini');
-        this.windows = false;
-      } else {
-        document.body.setAttribute('data-sidebar-style', 'full');
-      }
+  getScreenSize(event?:any) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth < 768) {
+      this.windows = false;
+      document.body.setAttribute('data-sidebar-style', 'overlay');
+    } else if (this.screenWidth >= 768 && this.screenWidth <= 1023) {
+      document.body.setAttribute('data-sidebar-style', 'mini');
+      this.windows = false;
+    } else {
+      document.body.setAttribute('data-sidebar-style', 'full');
     }
   }
 }

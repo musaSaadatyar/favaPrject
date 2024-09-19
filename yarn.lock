@@ -1746,6 +1746,14 @@
   resolved "https://registry.npmjs.org/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.0.13.tgz"
   integrity sha512-UCrMJQY/gJnOl3XgbWRZZUvGGBuKy6i0YNSptgMzHBjs+QYDYR1Mt/RLTOPy4fzzves65O1EDmlL//OzEqoLlA==
 
+"@metismenu/angular@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@metismenu/angular/-/angular-0.0.2.tgz#dc2a164123ff70b867f56fdf880a00e889ad45de"
+  integrity sha512-YNCXtgzB4p/qbV3OMnJIE2x0pjcn6GppJez/2Qq6EWJz5Jwd5JFNgm7PSTtsOLy+gZ/IPS6nMinoj8RdQmN4EA==
+  dependencies:
+    metismenujs "^1.2.1"
+    tslib "^2.0.0"
+
 "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.3.tgz#9edec61b22c3082018a79f6d1c30289ddf3d9d11"
@@ -5114,7 +5122,7 @@ methods@~1.1.2:
   resolved "https://registry.npmjs.org/methods/-/methods-1.1.2.tgz"
   integrity sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==
 
-metismenujs@^1.4.0:
+metismenujs@^1.2.1, metismenujs@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/metismenujs/-/metismenujs-1.4.0.tgz#9a91787f057b81dae99fe3e89ccd427f64075606"
   integrity sha512-a+3/XVkG8fVA6HBYu1yQkUkVpbh2n9po3vhSzu/Pu5k6s2hbteFZMRzUQyHt6FF28N8pLOpzcb47w4ErBHEsDQ==
