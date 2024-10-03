@@ -1,25 +1,26 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, HostBinding, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  inject,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { INavigationItem } from './navigation.interface';
 import { Unsubscriber } from '../../../utils/unsubscriber';
 import { Router, RouterLink } from '@angular/router';
 import { generateToken } from '../../../../shared/helpers/generate-token';
 import { NavigationMenuItems } from './constants/navigation.const';
 import { SharedService } from '../../../../shared/service/shared.service';
-import { MetismenuAngularModule } from '@metismenu/angular';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    MetismenuAngularModule,
-    PerfectScrollbarModule,
-  ],
+  imports: [CommonModule, RouterLink, PanelMenuModule],
 })
 export class NavigationComponent extends Unsubscriber {
   public currentHref: string;
@@ -27,7 +28,11 @@ export class NavigationComponent extends Unsubscriber {
   @HostBinding('class.mx-auto')
   marginAuto = true;
 
-  public showItem: boolean;
+  @ViewChild('menu', { static: true }) menu: ElementRef;
+
+  public activePath: string;
+
+  public showItems: boolean;
   // injections
 
   private router = inject(Router);
@@ -38,7 +43,7 @@ export class NavigationComponent extends Unsubscriber {
 
   private navigationList = inject(generateToken(NavigationMenuItems));
 
-  constructor() {
+  constructor( private renderer: Renderer2) {
     super();
     this.currentHref = this.location.path();
     this.anotherSubscription = this.router.events.subscribe((val) => {
@@ -49,8 +54,8 @@ export class NavigationComponent extends Unsubscriber {
   public hasActiveLink(navItem: INavigationItem) {
     const activePath = navItem.activePath ?? '';
     return (
-      (navItem.activePath === this.currentHref && navItem.path) ||
-      (navItem.path && navItem.path === this.currentHref) ||
+      (navItem.activePath === this.currentHref && navItem.route) ||
+      (navItem.route && navItem.route === this.currentHref) ||
       (navItem.items && this.currentHref.includes(activePath)) ||
       false
     );
@@ -76,13 +81,64 @@ export class NavigationComponent extends Unsubscriber {
     });
   }
 
-  public showSubItem(navigationItem: any, event: any) {
+  private removeActiveClass(parentLi: HTMLElement) {
+    const allParentLis = this.menu.nativeElement.querySelectorAll('ul > li');
+    allParentLis.forEach((li: HTMLElement) => {
+      if (li !== parentLi) {
+        li.classList.remove('mm-active');
+      }
+    });
+  }
+
+  private removeDNoneClass(parentLi: HTMLElement) {
+    const allChildLis = this.menu.nativeElement.querySelectorAll(
+      'ul li > a:not(.ai-icon)'
+    );
+    allChildLis.forEach((li: HTMLElement) => {
+      if (li !== parentLi) {
+        li.classList.add('d-none');
+      }
+    });
+  }
+
+  private addRemoveClass(parentLi: HTMLElement) {
+    const subItems = parentLi.querySelectorAll('ul li a:not(.ai-icon)');
+    subItems.forEach((item: any) => {
+      console.log(item);
+      if (item.classList.contains('d-none')) {
+       
+        this.renderer.removeClass(item, 'd-none');
+      } else {
+        console.log('11111111');
+        this.renderer.addClass(item, 'd-none');
+      }
+    });
     
-    this.showItem !=this.showItem
-    console.log(this.showItem, event.target, navigationItem);
+
+    if (parentLi.classList.contains('mm-active')) {
+      parentLi.classList.remove('mm-active');
+    } else {
+      parentLi.classList.add('mm-active');
+    }
+  }
+
+  public showSubItem(navigationItem: INavigationItem, event: any) {
+    event.stopPropagation();
+    this.showItems = !this.showItems;
+    const parentLi = event.currentTarget.closest('li');
+
+    if (parentLi) {
+      this.removeActiveClass(parentLi);
+      this.removeDNoneClass(parentLi);
+      this.addRemoveClass(parentLi);
+    }
   }
 
   get getNavigationList() {
     return this.PrepareNavigationList(this.navigationList);
+  }
+
+  itemsada(w:any){
+    console.log('v:',w);
   }
 }

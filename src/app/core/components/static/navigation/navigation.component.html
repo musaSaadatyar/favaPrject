@@ -1,34 +1,32 @@
-<div class="deznav">
-  <div class="deznav-scroll" [perfectScrollbar]>
-    <ul class="metismenu" id="menu" metis-menu>
+<!-- <div class="deznav">
+  <div class="deznav-scroll">
+    <ul class="metismenu" id="menu" metis-menu #menu>
       @for (navigationItem of getNavigationList; track $index) {
-      <ng-container>
-        <li
-          [class]="{ 'mm-active': hasActiveLink(navigationItem) }"
-          (click)="showSubItem(navigationItem, $event)"
+      <li
+        [class]="{ 'mm-active': hasActiveLink(navigationItem)}"
+        (click)="showSubItem(navigationItem,$event)"
+      >
+        <a
+          class="ai-icon"
+          [class.has-arrow]="navigationItem.items?.length"
+          [routerLink]="[
+            navigationItem.path ? navigationItem.path : currentHref
+          ]"
+          aria-expanded="false"
         >
-          <a
-            class="ai-icon"
-            [class.has-arrow]="navigationItem.items?.length"
-            [routerLink]="[
-              navigationItem.path ? navigationItem.path : currentHref
-            ]"
-            aria-expanded="false"
-          >
-            <i [class]="navigationItem.iconClass"></i>
-            <span [innerText]="navigationItem.title" class="nav-text"> </span>
-          </a>
-          @if (navigationItem.items) {
-          <ng-container
-            *ngTemplateOutlet="
-              myMenu;
-              context: { $implicit: navigationItem.items }
-            "
-          >
-          </ng-container>
-          }
-        </li>
-      </ng-container>
+          <i [class]="navigationItem.iconClass"></i>
+          <span [innerText]="navigationItem.title" class="nav-text"> </span>
+        </a>
+        @if (navigationItem.items) {
+        <ng-container
+          *ngTemplateOutlet="
+            myMenu;
+            context: { $implicit: navigationItem.items }
+          "
+        >
+        </ng-container>
+        }
+      </li>
       }
     </ul>
   </div>
@@ -39,16 +37,14 @@
   <ul aria-expanded="false">
     <li>
       @for (navigationItem of myItems; track $index) {
-        {{navigationItem.isVisible}}
-      <a
+      <a class="1"
         [innerText]="navigationItem.title"
         [class]="{
           'mm-active': currentHref === navigationItem.path,
-          'd-none':
-            currentHref !== navigationItem.path && !showItem
+          'd-none':currentHref !== navigationItem.path
         }"
         [routerLink]="[navigationItem.path ? navigationItem.path : currentHref]"
-        (click)="closeSideBar()"
+        (click)="closeSideBar();$event.stopPropagation()"
       >
       </a>
       @if (navigationItem.items) {
@@ -56,8 +52,55 @@
         *ngTemplateOutlet="myMenu; context: { $implicit: navigationItem.items }"
       >
       </ng-container>
-      } }
+      }
+    }
     </li>
   </ul>
   }
-</ng-template>
+</ng-template> -->
+<!-- https://primeng.org/panelmenu -->
+<div class="deznav">
+  <div class="mt-3">
+    <p-panelMenu [model]="getNavigationList">
+      <ng-template pTemplate="item" let-item>
+        @if(item.route){
+        <div [class]="{ 'mm-active': hasActiveLink(item) }">
+          <a
+          
+            class="ai-icon"
+            [routerLink]="[item.route ? item.route : currentHref]"
+            class="flex align-items-center cursor-pointer text-color px-3 py-2 ai-icon bg-blue"
+          >
+          {{item.route ? item.route : currentHref}}
+            <span [class]="item.icon" class="fs-22"></span>
+            <span class="ml-2 text-color fs-18">{{ item.label }}</span>
+          </a>
+        </div>
+        } @else {
+           @if(item.url){
+            {{'333333333'}}
+
+        <a
+          [href]="item.url"
+          class="flex align-items-center cursor-pointer text-color px-3 py-2"
+        >
+          <span [class]="item.icon" class="fs-20"></span>
+          <span class="ml-2">{{ item.label }}</span>
+        </a>
+
+        } @else{
+          
+          <span
+          class="flex align-items-center cursor-pointer text-color px-3 py-2 fs-18"
+          >
+          <span [class]="item.icon" class="px-2 fs-26"></span>
+          <span class="ml-2">{{ item.label }}</span>
+          @if (item.items) {
+          <i class="pi pi-angle-down text-primary ml-auto"></i>
+          }
+        </span>
+        } }
+      </ng-template>
+    </p-panelMenu>
+  </div>
+</div>

@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 import { NavHeaderComponent } from '../../core/components/static/nav-header/nav-header.component';
 import { HeaderComponent } from "../../core/components/static/header/header.component";
 import { NavigationComponent } from '../../core/components/static/navigation/navigation.component';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -20,7 +19,6 @@ import { RouterOutlet } from '@angular/router';
     NavHeaderComponent,
     HeaderComponent,
     NavigationComponent,
-    PerfectScrollbarModule,
     RouterOutlet
 ],
   animations: [slideInAnimation],

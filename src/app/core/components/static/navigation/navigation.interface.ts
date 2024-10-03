@@ -1,13 +1,16 @@
 export interface INavigationItemParent
 {
-  title: string;
-  path?: string;
+  label: string;
+  route?: string;
+  url?: string;
   activePath?: string;
   items?: INavigationItemParent[],
-  permission?: string
+  permission?: string, 
+  icon?: string;
+
 }
 
 export interface INavigationItem extends INavigationItemParent
 {
-  iconClass?: string;
+  icon?: string;
 }

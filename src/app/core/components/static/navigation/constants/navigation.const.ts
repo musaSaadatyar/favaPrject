@@ -9,39 +9,43 @@ export const NavigationMenuItems  = (): INavigationItem[]=>
 
   return [
     {
-      title: translate.instant('DASHBOARD'),
-      iconClass: 'las la-address-card',
+      label: translate.instant('DASHBOARD'),
+      icon: 'las la-address-card',
       activePath:'/587',
       items: [
         {
-          path: '/',
-          title: translate.instant('DASHBOARD'),
+          route: '/',
+          icon:'las la-address-card',
+          label: translate.instant('DASHBOARD')+'1',
         }
       ]
     },
     {
-      title: translate.instant('USER_ACCOUNT'),
-      iconClass: 'las la-key',
+      label: translate.instant('USER_ACCOUNT'),
+      icon: 'las la-key',
       activePath:'/account',
       items: [
         {
-          path: '/account',
-          title: translate.instant('USER_ACCOUNT'),
+          route: '/account',
+          icon:'',
+          label: translate.instant('USER_ACCOUNT')+'1',
         },
         {
-          path: '/account',
-          title: translate.instant('USER_ACCOUNT'),
+          route: '/account',
+          icon:'',
+          label: translate.instant('USER_ACCOUNT')+'2',
         }
       ]
     },
     {
-      title: translate.instant('USER'),
-      iconClass: 'las la-address-card',
+      label: translate.instant('USER'),
+      icon: 'las la-address-card',
       activePath:'/user',
       items: [
         {
-          path: '/user',
-          title: translate.instant('USER'),
+          route: '/user',
+          icon:'',
+          label: translate.instant('USER')+'1',
         }
       ]
     },
