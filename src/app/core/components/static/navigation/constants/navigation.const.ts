@@ -1,6 +1,6 @@
-import { INavigationItem } from '../navigation.interface';
 import { inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { INavigationItem } from '../navigation.interface';
 
 export const NavigationMenuItems  = (): INavigationItem[]=>
 {
@@ -9,43 +9,39 @@ export const NavigationMenuItems  = (): INavigationItem[]=>
 
   return [
     {
-      label: translate.instant('DASHBOARD'),
-      icon: 'las la-address-card',
-      activePath:'/587',
+      title: translate.instant('DASHBOARD'),
+      iconClass: 'las la-address-card',
+      activePath:'/dasbord',
       items: [
         {
-          route: '/',
-          icon:'las la-address-card',
-          label: translate.instant('DASHBOARD')+'1',
+          title: translate.instant('DASHBOARD')+'1',
+          path: '/',
         }
       ]
     },
     {
-      label: translate.instant('USER_ACCOUNT'),
-      icon: 'las la-key',
+      title: translate.instant('USER_ACCOUNT'),
+      iconClass: 'las la-key',
       activePath:'/account',
       items: [
         {
-          route: '/account',
-          icon:'',
-          label: translate.instant('USER_ACCOUNT')+'1',
+          path: '/account',
+          title: translate.instant('USER_ACCOUNT')+'1',
         },
         {
-          route: '/account',
-          icon:'',
-          label: translate.instant('USER_ACCOUNT')+'2',
+          path: '/account',
+          title: translate.instant('USER_ACCOUNT')+'2',
         }
       ]
     },
     {
-      label: translate.instant('USER'),
-      icon: 'las la-address-card',
+      title: translate.instant('USER'),
+      iconClass: 'las la-address-card',
       activePath:'/user',
       items: [
         {
-          route: '/user',
-          icon:'',
-          label: translate.instant('USER')+'1',
+          path: '/user',
+          title: translate.instant('USER')+'1',
         }
       ]
     },

@@ -15921,7 +15921,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .deznav .metismenu a {
   position: relative;
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem;
   outline-width: 0;
   color: #7e7e7e;
   text-decoration: none;
@@ -16319,7 +16319,7 @@ The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
 [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li {
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li > a > span {
