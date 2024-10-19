@@ -3,8 +3,8 @@
     <ul class="metismenu" id="menu" metis-menu #menu>
       @for (navigationItem of getNavigationList; track $index) {
       <li
-        [class]="{ 'mm-active': hasActiveLink(navigationItem)}"
-        (click)="showSubItem(navigationItem,$event)"
+        [class]="{ 'mm-active': hasActiveLink(navigationItem) }"
+        (click)="showSubItem(navigationItem, $event)"
       >
         <a
           class="ai-icon"
@@ -37,14 +37,14 @@
   <ul aria-expanded="false">
     <li>
       @for (navigationItem of myItems; track $index) {
-        <a 
+      <a
         [innerText]="navigationItem.title"
         [class]="{
           'mm-active': currentHref === navigationItem.path,
-          'd-none':currentHref !== navigationItem.path
+          'd-none': currentHref !== navigationItem.path
         }"
         [routerLink]="[navigationItem.path ? navigationItem.path : currentHref]"
-        (click)="closeSideBar();$event.stopPropagation()"
+        (click)="closeSideBar(); $event.stopPropagation()"
       >
       </a>
       @if (navigationItem.items) {
@@ -52,8 +52,7 @@
         *ngTemplateOutlet="myMenu; context: { $implicit: navigationItem.items }"
       >
       </ng-container>
-      }
-    }
+      } }
     </li>
   </ul>
   }
