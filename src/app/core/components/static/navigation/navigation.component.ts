@@ -43,7 +43,7 @@ export class NavigationComponent extends Unsubscriber {
 
   private navigationList = inject(generateToken(NavigationMenuItems));
 
-  constructor( private renderer: Renderer2) {
+  constructor(private renderer: Renderer2) {
     super();
     this.currentHref = this.location.path();
     this.anotherSubscription = this.router.events.subscribe((val) => {
@@ -54,8 +54,8 @@ export class NavigationComponent extends Unsubscriber {
   public hasActiveLink(navItem: INavigationItem) {
     const activePath = navItem.activePath ?? '';
     return (
-      (navItem.activePath === this.currentHref && navItem.route) ||
-      (navItem.route && navItem.route === this.currentHref) ||
+      (navItem.activePath === this.currentHref && navItem.path) ||
+      (navItem.path && navItem.path === this.currentHref) ||
       (navItem.items && this.currentHref.includes(activePath)) ||
       false
     );
@@ -90,30 +90,26 @@ export class NavigationComponent extends Unsubscriber {
     });
   }
 
-  private removeDNoneClass(parentLi: HTMLElement) {
+  private removedNoneClass(parentLi: HTMLElement) {
     const allChildLis = this.menu.nativeElement.querySelectorAll(
       'ul li > a:not(.ai-icon)'
     );
     allChildLis.forEach((li: HTMLElement) => {
-      if (li !== parentLi) {
+      if (li !== parentLi && !parentLi.classList.contains('mm-active')) {
         li.classList.add('d-none');
       }
     });
   }
 
   private addRemoveClass(parentLi: HTMLElement) {
-    const subItems = parentLi.querySelectorAll('ul li a:not(.ai-icon)');
+    const subItems = parentLi.querySelectorAll('li ul li a');
     subItems.forEach((item: any) => {
-      console.log(item);
       if (item.classList.contains('d-none')) {
-       
-        this.renderer.removeClass(item, 'd-none');
+        item.classList.remove('d-none');
       } else {
-        console.log('11111111');
-        this.renderer.addClass(item, 'd-none');
+        item.classList.add('d-none');
       }
     });
-    
 
     if (parentLi.classList.contains('mm-active')) {
       parentLi.classList.remove('mm-active');
@@ -124,21 +120,15 @@ export class NavigationComponent extends Unsubscriber {
 
   public showSubItem(navigationItem: INavigationItem, event: any) {
     event.stopPropagation();
-    this.showItems = !this.showItems;
     const parentLi = event.currentTarget.closest('li');
-
     if (parentLi) {
       this.removeActiveClass(parentLi);
-      this.removeDNoneClass(parentLi);
+      this.removedNoneClass(parentLi);
       this.addRemoveClass(parentLi);
     }
   }
 
   get getNavigationList() {
     return this.PrepareNavigationList(this.navigationList);
-  }
-
-  itemsada(w:any){
-    console.log('v:',w);
   }
 }

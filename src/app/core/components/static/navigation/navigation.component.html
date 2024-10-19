@@ -1,4 +1,4 @@
-<!-- <div class="deznav">
+<div class="deznav">
   <div class="deznav-scroll">
     <ul class="metismenu" id="menu" metis-menu #menu>
       @for (navigationItem of getNavigationList; track $index) {
@@ -37,7 +37,7 @@
   <ul aria-expanded="false">
     <li>
       @for (navigationItem of myItems; track $index) {
-      <a class="1"
+        <a 
         [innerText]="navigationItem.title"
         [class]="{
           'mm-active': currentHref === navigationItem.path,
@@ -57,50 +57,4 @@
     </li>
   </ul>
   }
-</ng-template> -->
-<!-- https://primeng.org/panelmenu -->
-<div class="deznav">
-  <div class="mt-3">
-    <p-panelMenu [model]="getNavigationList">
-      <ng-template pTemplate="item" let-item>
-        @if(item.route){
-        <div [class]="{ 'mm-active': hasActiveLink(item) }">
-          <a
-          
-            class="ai-icon"
-            [routerLink]="[item.route ? item.route : currentHref]"
-            class="flex align-items-center cursor-pointer text-color px-3 py-2 ai-icon bg-blue"
-          >
-          {{item.route ? item.route : currentHref}}
-            <span [class]="item.icon" class="fs-22"></span>
-            <span class="ml-2 text-color fs-18">{{ item.label }}</span>
-          </a>
-        </div>
-        } @else {
-           @if(item.url){
-            {{'333333333'}}
-
-        <a
-          [href]="item.url"
-          class="flex align-items-center cursor-pointer text-color px-3 py-2"
-        >
-          <span [class]="item.icon" class="fs-20"></span>
-          <span class="ml-2">{{ item.label }}</span>
-        </a>
-
-        } @else{
-          
-          <span
-          class="flex align-items-center cursor-pointer text-color px-3 py-2 fs-18"
-          >
-          <span [class]="item.icon" class="px-2 fs-26"></span>
-          <span class="ml-2">{{ item.label }}</span>
-          @if (item.items) {
-          <i class="pi pi-angle-down text-primary ml-auto"></i>
-          }
-        </span>
-        } }
-      </ng-template>
-    </p-panelMenu>
-  </div>
-</div>
+</ng-template>
