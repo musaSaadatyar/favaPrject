@@ -7,17 +7,26 @@
   <div class="d-flex justify-content-center align-items-center vh-100">
     <fava-loading></fava-loading>
   </div>
-  } 
-  
-  @if (!showLoading.value) {
-  <div id="except-footer">
+  } @else {
+  <div id="except-footer" class="vh-100 w-100">
     <app-nav-header></app-nav-header>
     <app-header></app-header>
-  </div>
-  @if(loadModules){
-  <ng-container>
+    @if(loadModules){
     <app-navigation></app-navigation>
-  </ng-container>
-  } }
+    <div class="content-body">
+
+
+      <div class="breadcrumb-container">
+        <fava-breadcrumb class="d-block" [backButton]="backButton" />
+      </div>
+
+      <div [@routeAnimations]="getRouteAnimationData()">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    } 
+  </div>
+
+  }
 </div>
 <router-outlet></router-outlet>

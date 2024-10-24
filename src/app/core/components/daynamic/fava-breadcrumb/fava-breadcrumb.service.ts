@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, filter, map, merge, Observable } from 'rxjs';
-import { IBhrBreadcrumb } from './fava-breadcrumb.helper';
+import { IFAvaBreadcrumb } from './fava-breadcrumb.helper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DynamicBreadcrumbService {
-  private initialBreadCrumb$!: BehaviorSubject<IBhrBreadcrumb[]>;
+  private initialBreadCrumb$!: BehaviorSubject<IFAvaBreadcrumb[]>;
 
   constructor(private _route: ActivatedRoute, private _router: Router) {
     this.convertActivatedRoutesToIDynamicBreadcrumbs.bind(this);
@@ -26,7 +26,7 @@ export class DynamicBreadcrumbService {
     );
   }
 
-  get breadcrumb$(): Observable<IBhrBreadcrumb[]> {
+  get breadcrumb$(): Observable<IFAvaBreadcrumb[]> {
     return merge(
       this._router.events.pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -59,8 +59,8 @@ export class DynamicBreadcrumbService {
 
   private convertActivatedRoutesToIDynamicBreadcrumbs(
     routesList: ActivatedRoute[]
-  ): IBhrBreadcrumb[] {
-    let breadcrumbs: IBhrBreadcrumb[] = [];
+  ): IFAvaBreadcrumb[] {
+    let breadcrumbs: IFAvaBreadcrumb[] = [];
     routesList.forEach((item) => {
       breadcrumbs.push({
         path: item.snapshot.pathFromRoot.reduce((acc, curr) => {
@@ -74,9 +74,9 @@ export class DynamicBreadcrumbService {
   }
 
   private removeRepetitiveBreadCrumbs(
-    breadcrumbs: IBhrBreadcrumb[]
-  ): IBhrBreadcrumb[] {
-    return breadcrumbs.reduce((acc: IBhrBreadcrumb[], curr) => {
+    breadcrumbs: IFAvaBreadcrumb[]
+  ): IFAvaBreadcrumb[] {
+    return breadcrumbs.reduce((acc: IFAvaBreadcrumb[], curr) => {
       let exists = acc.find((item) => {
         return item.path === curr.path && item.titleItem === curr.titleItem;
       });

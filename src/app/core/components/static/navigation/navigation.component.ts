@@ -104,11 +104,7 @@ export class NavigationComponent extends Unsubscriber {
   private addRemoveClass(parentLi: HTMLElement) {
     const subItems = parentLi.querySelectorAll('li ul li a');
     subItems.forEach((item: any) => {
-      if (item.classList.contains('d-none')) {
-        item.classList.remove('d-none');
-      } else {
-        item.classList.add('d-none');
-      }
+      item.classList.toggle('d-none');
     });
 
     if (parentLi.classList.contains('mm-active')) {

@@ -10602,7 +10602,7 @@ a.active {
 .breadcrumb-container {
   padding-top: 10px;
   padding-right: 8px;
-  padding-left: 8px;
+  padding-left: 4px;
 }
 
 
@@ -72243,7 +72243,7 @@ span#counter {
 }
 
 [direction="rtl"] .content-body {
-  margin-right: 17.8rem;
+  margin-right: 14.6rem;
   margin-left: auto;
 }
 

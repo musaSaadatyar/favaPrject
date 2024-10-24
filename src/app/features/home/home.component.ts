@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 import { NavHeaderComponent } from '../../core/components/static/nav-header/nav-header.component';
 import { HeaderComponent } from "../../core/components/static/header/header.component";
 import { NavigationComponent } from '../../core/components/static/navigation/navigation.component';
-import { RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, Router, RouterOutlet } from '@angular/router';
+import { FavaBreadcrumbComponent } from "../../core/components/daynamic/fava-breadcrumb/fava-breadcrumb.component";
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ import { RouterOutlet } from '@angular/router';
     NavHeaderComponent,
     HeaderComponent,
     NavigationComponent,
-    RouterOutlet
+    RouterOutlet,
+    FavaBreadcrumbComponent
 ],
   animations: [slideInAnimation],
 })
@@ -29,13 +31,24 @@ export class HomeComponent extends Unsubscriber implements OnInit {
 
   public loadModules = true;
 
+  public backButton = false;
+
+
   constructor(
-    public _sharedService: SharedService
+    public _sharedService: SharedService,
+    private contexts: ChildrenOutletContexts,
+    private router: Router,
+
   ) {
     super()
   }
 
   ngOnInit(): void {
     this.showLoading.next(false);
+     this.backButton = this.router?.url !== '/'
+  }
+
+  public getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 }

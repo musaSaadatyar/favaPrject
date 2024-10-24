@@ -6,7 +6,7 @@ export const breadcrumbTranslate =
   () =>
     inject(TranslateService).instant(key);
 
-export interface IBhrBreadcrumb {
+export interface IFAvaBreadcrumb {
   path: string;
   titleItem: string;
 }

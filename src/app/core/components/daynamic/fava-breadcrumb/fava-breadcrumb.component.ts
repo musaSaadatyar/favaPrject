@@ -1,7 +1,7 @@
 import { CommonModule, Location, NgIf } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { filter, Observable } from 'rxjs';
-import { IBhrBreadcrumb } from './fava-breadcrumb.helper';
+import { IFAvaBreadcrumb } from './fava-breadcrumb.helper';
 import { DynamicBreadcrumbService } from './fava-breadcrumb.service';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -11,15 +11,10 @@ import { ButtonModule } from 'primeng/button';
   templateUrl: './fava-breadcrumb.component.html',
   styleUrl: './fava-breadcrumb.component.css',
   standalone: true,
-  imports: [
-    CommonModule,
-    NgIf,
-    RouterModule,
-    ButtonModule
-  ],
+  imports: [CommonModule, NgIf, RouterModule, ButtonModule],
 })
 export class FavaBreadcrumbComponent implements OnInit {
-  public items$!: Observable<IBhrBreadcrumb[]>;
+  public items$!: Observable<IFAvaBreadcrumb[]>;
 
   @Input() backButton: boolean = false;
 
@@ -27,18 +22,11 @@ export class FavaBreadcrumbComponent implements OnInit {
 
   private currentUrl!: string;
 
-  //inject
-  private _dynamicBreadcrumbService = inject(DynamicBreadcrumbService);
-  private router = inject(Router);
-  private location = inject(Location);
-
-  ngOnInit(): void {
-    this.breadcrumbEvent()
-    this.items$ = this._dynamicBreadcrumbService.breadcrumb$;
-
-  }
-
-  private breadcrumbEvent() {
+  constructor(
+    private _dynamicBreadcrumbService: DynamicBreadcrumbService,
+    private router: Router,
+    private location: Location
+  ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -51,6 +39,11 @@ export class FavaBreadcrumbComponent implements OnInit {
         }
       });
   }
+
+  ngOnInit(): void {
+    this.items$ = this._dynamicBreadcrumbService.breadcrumb$;
+  }
+
 
   goBack() {
     const url = this.previousUrl || '/';
