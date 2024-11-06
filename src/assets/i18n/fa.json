@@ -1,4 +1,5 @@
 {
+  "SOCIETY_GOVA_SERVICE":"سامانه جامع خدمات پس فروش گواه",
   "UN_ACCESS":"دسترسی ممنوع",
   "FORBIDDEN_PAGE_TO_SEE":"متأسفانه شما مجاز به مشاهده این صفحه نیستید",
   "PAGE_NOT_FOUND":"صفحه مورد نظر یافت نشد",
@@ -7,5 +8,9 @@
   "FAVA":"فاوا",
   "USER":"کاربر",
   "USER_ACCOUNT":"حساب کاربری",
-  "DASHBOARD":"میز کار"
+  "DASHBOARD":"میز کار",
+  "SEARCH":"جستجو",
+  "MY_PROFILE":"اطلاعات فردی",
+  "ACCOUNT_SETTINGS":"تنظیمات حساب کاربری",
+  "SIGN_OUT":"خروج"
 }

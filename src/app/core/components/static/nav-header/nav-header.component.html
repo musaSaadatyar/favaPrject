@@ -1,38 +1,109 @@
-<div class='nav-header' >
-  <a
-    [routerLink]="['/']"
-    class='brand-logo'>
-    <img
-      class='logo-abbr'
-      src='assets/image/fava.png'
-      alt="fava-logo"
-      width='40'>
-    <h1 class='brand-title text-white'>{{'FAVA'|translate}}</h1>
-  </a>
+<header
+  id="header"
+  class="header fixed-top d-flex align-items-center bg-primary"
+>
+  <div class="d-flex align-items-center justify-content-between">
+    <a
+      [routerLink]="['/']"
+      class="logo d-flex align-items-center d-inline-block"
+    >
+      <img claas="d-inline-block" [src]="'assets/image/fava.png'" />
+      <span class="d-none d-lg-block p-2 wspace-no d-inline-block">
+        {{ "SOCIETY_GOVA_SERVICE" | translate }}
+      </span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn p-2"></i>
+  </div>
 
-  @if (windows) {
-    <div class='nav-control'>
-      <div
-        [class]="{'is-active': !($hamburgerIcon | async)}"
-        class='hamburger'
-        (click)='toggleHamburgerClass()'>
-        <span class='line avali'></span>
-        <span class='line'></span>
-        <span class='line'></span>
-      </div>
+  <div class="search-bar">
+    <div class="search-form d-flex align-items-center">
+      <input type="text" [(ngModel)]="searchValue" />
+      @if (searchValue) {
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      }
     </div>
-  } 
-  
-  @if (!windows) {
-    <div class='nav-control'>
-      <div
-        [class]="{'is-active': ($hamburgerIcon )}"
-        class='hamburger'
-        (click)='toggleHamburgerClass()'>
-        <span class='line dovomi'></span>
-        <span class='line'></span>
-        <span class='line'></span>
+  </div>
+
+  <nav class="header-nav w-100">
+    <ul class="d-flex align-items-center justify-content-between">
+      <div class="col-md-4 d-flex justify-content-center">
+        <li class="nav-item d-block">
+          <a class="nav-link nav-icon search-bar-toggle">
+            <i class="fa-regular fa-star"></i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-danger badge-number">4</span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge bg-danger badge-number">3</span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown mr-md-2">
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-car"></i>
+          </a>
+        </li>
       </div>
-    </div>
-  }
-</div>
+
+      <div>
+        <li class="nav-item dropdown pe-3 d-flex">
+          <div class="nav-link nav-profile d-flex align-items-center pe-0">
+            <img
+              src="assets/image/profile-img.jpg"
+              alt="Profile"
+              class="rounded-circle"
+            />
+            <span class="d-none d-md-block ps-2">K. Anderson</span>
+          </div>
+          <a href="#" data-bs-toggle="dropdown">
+            <i
+              class="fa-solid fa-ellipsis-vertical fs-1 ellipsis-vertical dropdown text-white"
+            ></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end dropdown-menu-arrowProfile profile"
+          >
+            <li>
+              <a class="dropdown-item d-flex align-items-center">
+                <i class="bi bi-person px-1"></i>
+                <span>{{ "MY_PROFILE" | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item d-flex align-items-center"
+                href="users-profile.html"
+              >
+                <i class="bi bi-gear px-1"></i>
+                <span>{{ "ACCOUNT_SETTINGS" | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center pb-2" href="#">
+                <i class="bi bi-box-arrow-right px-1"></i>
+                <span>{{ "SIGN_OUT" | translate }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>

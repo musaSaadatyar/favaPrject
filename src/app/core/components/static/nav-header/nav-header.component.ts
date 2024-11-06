@@ -5,19 +5,22 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { SharedService } from '../../../../shared/service/shared.service';
 import { Unsubscriber } from '../../../utils/unsubscriber';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-nav-header',
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.css',
   standalone: true,
-  imports: [CommonModule, RouterLink, TranslateModule, NgIf],
+  imports: [CommonModule, RouterLink, TranslateModule, FormsModule],
 })
 export class NavHeaderComponent extends Unsubscriber {
   public $hamburgerIcon = new BehaviorSubject(true);
 
   public windows = true;
 
+  public searchValue: any;
+  
   private screenHeight: number;
 
   private screenWidth: number;
